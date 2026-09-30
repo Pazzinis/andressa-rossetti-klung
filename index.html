@@ -82,6 +82,25 @@
       .format-row .mode{border:0;margin:0;padding:23px 25px}
       .about-copy .about-belief{font-size:1.24rem}
     }
+    .space-grid .space-open{display:block;width:100%;height:100%;padding:0;border:0;background:transparent;cursor:zoom-in}
+    .space-grid .space-open img{transition:transform .25s ease}
+    .space-grid .space-open:hover img{transform:scale(1.025)}
+    .space-grid .space-open:focus-visible{outline:3px solid #24483d;outline-offset:-5px}
+    .space-grid figcaption{pointer-events:none}
+    .gallery-dialog{width:min(1000px,calc(100vw - 24px));max-width:none;max-height:calc(100dvh - 24px);margin:auto;padding:0;border:0;border-radius:18px;background:#19372f;color:#fff;box-shadow:0 24px 75px #0008;overflow:hidden}
+    .gallery-dialog::backdrop{background:#0d211be8}
+    .gallery-shell{position:relative;padding:52px 16px 18px}
+    .gallery-stage{margin:0;text-align:center}
+    .gallery-stage img{display:block;width:100%;height:min(70dvh,740px);object-fit:contain;border-radius:8px}
+    .gallery-stage figcaption{margin-top:12px;font-size:.95rem;font-weight:600;color:#eff4eb}
+    .gallery-count{margin:2px 0 0;text-align:center;font-size:.78rem;color:#bdd4c0}
+    .gallery-control{display:grid;place-items:center;width:44px;height:44px;border:1px solid #ffffffa6;border-radius:50%;background:#19372fcc;color:#fff;font-size:1.8rem;line-height:1;cursor:pointer}
+    .gallery-control:hover{background:#ffffff30}
+    .gallery-close{position:absolute;top:10px;right:12px;z-index:2;font-size:1.45rem}
+    .gallery-prev,.gallery-next{position:absolute;top:50%;z-index:2;transform:translateY(-50%)}
+    .gallery-prev{left:22px}.gallery-next{right:22px}
+    .gallery-control:focus-visible{outline:3px solid #b9d6b8;outline-offset:3px}
+    @media(max-width:760px){.gallery-shell{padding:48px 9px 15px}.gallery-stage img{height:min(68dvh,650px)}.gallery-prev{left:13px}.gallery-next{right:13px}.gallery-control{width:38px;height:38px;font-size:1.55rem}.gallery-stage figcaption{font-size:.86rem}}
   </style>
 </head>
 <body>
@@ -98,13 +117,65 @@
     <section class="intro" id="atuacao"><div class="container intro-grid"><div><span class="eyebrow">Minha forma de trabalhar</span><h2 class="section-title">Compreender antes de <em>orientar.</em></h2></div><div><p class="lead">Na clínica, trabalho com a Terapia Cognitivo-Comportamental integrada à Terapia dos Esquemas. Considero também <strong>o contexto em que cada história acontece</strong>: cultura, idioma, trabalho, vínculos, identidade e pertencimento. Essa compreensão ajuda a reconhecer padrões e transformar conhecimento em <strong>recursos para a vida</strong>.</p><div class="approach-list" aria-label="Abordagens e áreas de estudo"><span class="tag">Terapia Cognitivo-Comportamental</span><span class="tag">Terapia dos Esquemas</span><span class="tag">Contexto intercultural</span></div></div></div></section>
     <section class="topics"><div class="container"><div class="topics-heading"><div><span class="eyebrow">Onde a psicoterapia pode ajudar</span><h2 class="section-title">O que traz você <em>até aqui?</em></h2></div><p>Às vezes, o que traz você à terapia ainda não tem nome. Podemos começar pelo que hoje pede atenção.</p></div><div class="cards"><article class="card"><span class="card-num">01</span><h3>Padrões e emoções</h3><p>Compreender o que se repete, reconhecer emoções e perceber recursos que você já possui.</p></article><article class="card"><span class="card-num">02</span><h3>Perdas e transições</h3><p>Elaborar mudanças pessoais, familiares ou profissionais e construir escolhas mais conscientes.</p></article><article class="card"><span class="card-num">03</span><h3>Vida entre culturas</h3><p>Olhar para identidade, pertencimento, vínculos e carreira quando a vida acontece entre lugares.</p></article></div></div></section>
     <section class="intercultural" aria-labelledby="intercultural-title"><div class="container intercultural-grid"><div><span class="eyebrow">Para brasileiros no exterior</span><h2 class="section-title" id="intercultural-title">Viver fora muda mais do que <em>o endereço.</em></h2></div><div><p class="lead">Você pode gostar da vida que construiu fora do Brasil e ainda sentir saudade, solidão ou estranhamento. Idioma, trabalho, vínculos e papéis podem mudar a forma como você se reconhece.</p><ul class="intercultural-list"><li>Identidade e pertencimento</li><li>Perdas, relações e adaptação cultural</li><li>Carreira e escolhas entre ficar, voltar ou recomeçar</li></ul><p class="intercultural-note">Na psicoterapia, essas experiências são compreendidas junto à sua história, sem exigir que você abandone quem é para construir uma vida em outro lugar.</p></div></div></section>
-    <section class="how" id="como-funciona"><div class="container"><div class="how-head"><span class="eyebrow">O atendimento</span><h2 class="section-title">Como funciona a <em>psicoterapia.</em></h2></div><ol class="steps"><li class="step"><b aria-hidden="true">01</b><div><h3>Primeira mensagem</h3><p>No WhatsApp, você consulta informações e horários. Não precisa contar detalhes pessoais; se mora fora do Brasil, consideramos o fuso horário.</p></div></li><li class="step"><b aria-hidden="true">02</b><div><h3>Primeiro encontro</h3><p>Com tempo e privacidade, conversamos sobre o que você está vivendo, sua história e o que deseja trabalhar.</p></div></li><li class="step"><b aria-hidden="true">03</b><div><h3>Acompanhamento</h3><p>Os encontros podem ser semanais ou quinzenais, com frequência definida em conjunto. O processo ajuda a elaborar experiências e construir recursos.</p></div></li></ol><div class="format-row"><span class="eyebrow">Formatos</span><div class="mode"><h3>Presencial</h3><p>Para adultos, no consultório no centro de Capão da Canoa.</p></div><div class="mode"><h3>On-line</h3><p>Para adultos, inclusive brasileiras e brasileiros que vivem fora do país.</p></div></div></div></section>
+    <section class="how" id="como-funciona"><div class="container"><div class="how-head"><span class="eyebrow">O atendimento</span><h2 class="section-title">Como funciona a <em>psicoterapia.</em></h2></div><ol class="steps"><li class="step"><b aria-hidden="true">01</b><div><h3>Primeira mensagem</h3><p>No WhatsApp, você consulta informações e horários. Não precisa contar detalhes pessoais; se mora fora do Brasil, consideramos o fuso horário.</p></div></li><li class="step"><b aria-hidden="true">02</b><div><h3>Primeiro encontro</h3><p>Com tempo e privacidade, conversamos sobre o que você está vivendo, sua história e o que deseja trabalhar.</p></div></li><li class="step"><b aria-hidden="true">03</b><div><h3>Acompanhamento</h3><p>Os encontros podem ser semanais ou quinzenais, com frequência definida em conjunto. O processo ajuda a elaborar experiências e construir recursos.</p></div></li></ol><div class="format-row"><span class="eyebrow">Formatos</span><div class="mode"><h3>Presencial</h3><p>Para adultos, no consultório no centro de Capão da Canoa, Rio Grande do Sul.</p></div><div class="mode"><h3>On-line</h3><p>Para adultos, inclusive brasileiras e brasileiros que vivem fora do país.</p></div></div></div></section>
     <section class="about" id="sobre"><div class="container about-grid"><div><span class="eyebrow">Sobre mim</span><h2 class="section-title">Prazer, sou <em>Andressa.</em></h2></div><div class="about-copy"><p class="about-belief">Acredito em uma psicologia que une conhecimento, humanidade e respeito à história de cada pessoa.</p><p>Sou psicóloga, graduada em Psicologia e pós-graduada em Gestão de Pessoas. Há mais de 21 anos trabalho com Desenvolvimento Humano, acompanhando pessoas e processos de mudança. Na clínica, uno esse percurso à TCC, à Terapia dos Esquemas e à atenção ao contexto intercultural.</p><a class="instagram-link" href="https://www.instagram.com/psi.andressaklung/" target="_blank" rel="noopener noreferrer">Acompanhe meu trabalho no Instagram <span aria-hidden="true">↗</span></a></div></div></section>
-    <section class="space" id="consultorio"><div class="container"><div class="space-head"><div><span class="eyebrow">O consultório</span><h2 class="section-title">Conheça o espaço <em>presencial.</em></h2></div><p>Um pouco do ambiente onde acontecem os atendimentos em Capão da Canoa.</p></div><div class="space-grid"><figure><img src="./consultorio-sala.png" width="1215" height="816" alt="Sala de atendimento com duas poltronas azuis e janelas amplas" loading="lazy"><figcaption>Sala de atendimento</figcaption></figure><figure><img src="./consultorio-recepcao.png" width="680" height="826" alt="Recepção do consultório com cadeiras e painel de madeira" loading="lazy"><figcaption>Recepção</figcaption></figure><figure><img src="./consultorio-detalhe.png" width="682" height="810" alt="Detalhe da decoração do consultório com estrela do mar e fotografia" loading="lazy"><figcaption>Detalhes do espaço</figcaption></figure><figure><img src="./consultorio-corredor.png" width="681" height="813" alt="Corredor interno que leva à sala de atendimento" loading="lazy"><figcaption>Acesso à sala</figcaption></figure><figure><img src="./consultorio-vista.png" width="549" height="817" alt="Vista de Capão da Canoa a partir do consultório" loading="lazy"><figcaption>Vista do consultório</figcaption></figure></div></div></section>
+    <section class="space" id="consultorio"><div class="container"><div class="space-head"><div><span class="eyebrow">O consultório</span><h2 class="section-title">Conheça o espaço <em>presencial.</em></h2></div><p>Um pouco do ambiente onde acontecem os atendimentos em Capão da Canoa.</p></div><div class="space-grid"><figure><button class="space-open" type="button" aria-label="Ampliar foto: sala de atendimento"><img src="./consultorio-sala.png" width="1215" height="816" alt="Sala de atendimento com duas poltronas azuis e janelas amplas" loading="lazy"></button><figcaption>Sala de atendimento</figcaption></figure><figure><button class="space-open" type="button" aria-label="Ampliar foto: recepção"><img src="./consultorio-recepcao.png" width="680" height="826" alt="Recepção do consultório com cadeiras e painel de madeira" loading="lazy"></button><figcaption>Recepção</figcaption></figure><figure><button class="space-open" type="button" aria-label="Ampliar foto: detalhes do espaço"><img src="./consultorio-detalhe.png" width="682" height="810" alt="Detalhe da decoração do consultório com estrela do mar e fotografia" loading="lazy"></button><figcaption>Detalhes do espaço</figcaption></figure><figure><button class="space-open" type="button" aria-label="Ampliar foto: acesso à sala"><img src="./consultorio-corredor.png" width="681" height="813" alt="Corredor interno que leva à sala de atendimento" loading="lazy"></button><figcaption>Acesso à sala</figcaption></figure><figure><button class="space-open" type="button" aria-label="Ampliar foto: vista do consultório"><img src="./consultorio-vista.png" width="549" height="817" alt="Vista de Capão da Canoa a partir do consultório" loading="lazy"></button><figcaption>Vista do consultório</figcaption></figure></div></div></section>
+    <dialog class="gallery-dialog" aria-label="Galeria de fotos do consultório"><div class="gallery-shell"><button class="gallery-control gallery-close" type="button" aria-label="Fechar galeria">×</button><button class="gallery-control gallery-prev" type="button" aria-label="Foto anterior">‹</button><figure class="gallery-stage"><img id="gallery-image" alt=""><figcaption id="gallery-caption" aria-live="polite"></figcaption></figure><button class="gallery-control gallery-next" type="button" aria-label="Próxima foto">›</button><p class="gallery-count" aria-live="polite"></p></div></dialog>
     <section class="contact" id="contato"><div class="container"><div class="contact-head"><div><span class="eyebrow">Contato e localização</span><h2 class="section-title">Vamos <em>conversar?</em></h2></div><p class="lead">Consulte informações, formato de atendimento e horários disponíveis.</p></div><div class="contact-grid"><div class="contact-panel"><div class="contact-panel-top"><span class="eyebrow">Primeiro contato</span><h3>O começo pode ser uma mensagem.</h3><p>Você pode perguntar sobre o atendimento sem relatar detalhes pessoais. Conversaremos sobre sua história com tempo e privacidade no encontro.</p><a class="button" href="https://wa.me/5551996698242?text=Ol%C3%A1%2C%20Andressa%21%20Encontrei%20seu%20site%20e%20gostaria%20de%20saber%20como%20funciona%20a%20psicoterapia." target="_blank" rel="noopener noreferrer">Consultar horários no WhatsApp</a></div><div class="contact-meta"><div class="contact-row"><strong>WhatsApp</strong><a href="tel:+5551996698242">(51) 99669-8242</a></div><div class="contact-row"><strong>Consultório</strong><span>Av. Paraguassu, 2143 · sala 701<br>Centro, Capão da Canoa · RS</span></div><div class="contact-row"><strong>Instagram</strong><a href="https://www.instagram.com/psi.andressaklung/" target="_blank" rel="noopener noreferrer">@psi.andressaklung</a></div></div></div><div class="map-card"><iframe title="Mapa do consultório de Andressa Rossetti Klung em Capão da Canoa" src="https://www.google.com/maps?q=Av.%20Paraguassu%2C%202143%2C%20Cap%C3%A3o%20da%20Canoa%20RS&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe><div class="map-footer"><p><strong>Atendimento presencial</strong><br>Av. Paraguassu, 2143 · sala 701</p><a href="https://www.google.com/maps/place/Psic%C3%B3loga+Andressa+Rossetti+Klung%7C+CRP+07%2F13685/@-29.7600447,-50.0189039,17z" target="_blank" rel="noopener noreferrer">Abrir rota no Google Maps</a></div></div></div></div></section>
     <section class="closing"><span class="eyebrow">O primeiro passo pode ser uma conversa</span><h2>Compreender. Elaborar. <em>Construir.</em></h2><p>Um espaço para reconhecer sua história, desenvolver recursos e fazer escolhas mais conscientes — de onde você estiver.</p><a class="button" href="https://wa.me/5551996698242?text=Ol%C3%A1%2C%20Andressa%21%20Encontrei%20seu%20site%20e%20gostaria%20de%20saber%20como%20funciona%20a%20psicoterapia." target="_blank" rel="noopener noreferrer">Consultar horários</a></section>
   </main>
   <footer class="footer"><div class="container footer-inner"><p>© <span id="year">2026</span> Andressa Rossetti Klung · Psicóloga · CRP 07/13685</p><div class="footer-links"><a href="https://www.instagram.com/psi.andressaklung/" target="_blank" rel="noopener noreferrer">Instagram</a><a href="https://wa.me/5551996698242" target="_blank" rel="noopener noreferrer">WhatsApp</a><a href="#inicio">Voltar ao topo</a></div></div></footer>
-  <script>document.getElementById('year').textContent=new Date().getFullYear();const toggle=document.querySelector('.menu-toggle'),nav=document.getElementById('menu');toggle.addEventListener('click',()=>{const open=nav.classList.toggle('open');toggle.setAttribute('aria-expanded',String(open));toggle.setAttribute('aria-label',open?'Fechar menu':'Abrir menu')});nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');toggle.setAttribute('aria-expanded','false');toggle.setAttribute('aria-label','Abrir menu')}));</script>
+  <script>
+    document.getElementById('year').textContent=new Date().getFullYear();
+    const toggle=document.querySelector('.menu-toggle'),nav=document.getElementById('menu');
+    toggle.addEventListener('click',()=>{const open=nav.classList.toggle('open');toggle.setAttribute('aria-expanded',String(open));toggle.setAttribute('aria-label',open?'Fechar menu':'Abrir menu')});
+    nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');toggle.setAttribute('aria-expanded','false');toggle.setAttribute('aria-label','Abrir menu')}));
+
+    const galleryButtons=[...document.querySelectorAll('.space-open')];
+    const galleryDialog=document.querySelector('.gallery-dialog');
+    const galleryImage=document.getElementById('gallery-image');
+    const galleryCaption=document.getElementById('gallery-caption');
+    const galleryCount=document.querySelector('.gallery-count');
+    const galleryClose=document.querySelector('.gallery-close');
+    const galleryPrev=document.querySelector('.gallery-prev');
+    const galleryNext=document.querySelector('.gallery-next');
+    const galleryStage=document.querySelector('.gallery-stage');
+    let galleryIndex=0,galleryTrigger=null,previousOverflow='',touchStartX=null;
+
+    function showGalleryPhoto(index){
+      galleryIndex=(index+galleryButtons.length)%galleryButtons.length;
+      const figure=galleryButtons[galleryIndex].closest('figure');
+      const image=figure.querySelector('img');
+      galleryImage.src=image.getAttribute('src');
+      galleryImage.alt=image.alt;
+      galleryCaption.textContent=figure.querySelector('figcaption').textContent;
+      galleryCount.textContent=`${galleryIndex+1} de ${galleryButtons.length}`;
+    }
+
+    galleryButtons.forEach((button,index)=>button.addEventListener('click',()=>{
+      galleryTrigger=button;
+      showGalleryPhoto(index);
+      previousOverflow=document.body.style.overflow;
+      document.body.style.overflow='hidden';
+      galleryDialog.showModal();
+      galleryClose.focus();
+    }));
+    galleryPrev.addEventListener('click',()=>showGalleryPhoto(galleryIndex-1));
+    galleryNext.addEventListener('click',()=>showGalleryPhoto(galleryIndex+1));
+    galleryClose.addEventListener('click',()=>galleryDialog.close());
+    galleryDialog.addEventListener('click',event=>{if(event.target===galleryDialog)galleryDialog.close()});
+    galleryDialog.addEventListener('keydown',event=>{
+      if(event.key==='ArrowLeft'){event.preventDefault();showGalleryPhoto(galleryIndex-1)}
+      if(event.key==='ArrowRight'){event.preventDefault();showGalleryPhoto(galleryIndex+1)}
+    });
+    galleryStage.addEventListener('touchstart',event=>{touchStartX=event.changedTouches[0].screenX},{passive:true});
+    galleryStage.addEventListener('touchend',event=>{
+      if(touchStartX===null)return;
+      const distance=event.changedTouches[0].screenX-touchStartX;
+      if(Math.abs(distance)>45)showGalleryPhoto(galleryIndex+(distance<0?1:-1));
+      touchStartX=null;
+    },{passive:true});
+    galleryDialog.addEventListener('close',()=>{document.body.style.overflow=previousOverflow;galleryTrigger?.focus()});
+  </script>
 </body>
 </html>
