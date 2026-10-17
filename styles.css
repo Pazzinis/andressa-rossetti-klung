@@ -222,7 +222,7 @@ section {
 .hero-grid {
   display: grid;
   grid-template-columns: 1.12fr 0.88fr;
-  grid-template-areas: "eyebrow portrait" "title portrait" "copy portrait" "actions portrait" "audience portrait";
+  grid-template-areas: "eyebrow portrait" "title portrait" "copy portrait" "description portrait" "actions portrait" "audience portrait";
   column-gap: 72px;
   padding-block: 64px 76px;
 }
@@ -241,18 +241,21 @@ section {
   color: var(--accent);
   font-weight: 400;
 }
+.hero-title-middle {
+  color: var(--accent);
+  font-style: italic;
+}
 .hero-visual {
   grid-area: portrait;
   align-self: center;
-  padding: 0 16px 16px 0;
+  padding: 0;
 }
 .portrait-wrap {
   position: relative;
   width: 100%;
-  aspect-ratio: 4/4.6;
+  aspect-ratio: 1.05;
   overflow: hidden;
-  border-radius: 240px 240px 24px 24px;
-  box-shadow: 16px 16px 0 #dce5d7;
+  border-radius: 24px;
   background: #dce5d7;
 }
 .portrait-wrap img {
@@ -274,6 +277,14 @@ section {
 .hero-copy strong {
   color: var(--deep);
   font-weight: 600;
+}
+.hero-description {
+  grid-area: description;
+  margin: 0 0 14px;
+  max-width: 570px;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.75;
 }
 .hero .actions {
   grid-area: actions;
@@ -967,32 +978,40 @@ section {
   }
   .hero-grid {
     grid-template-columns: 1fr;
-    grid-template-areas: "eyebrow" "title" "portrait" "copy" "actions" "audience";
-    padding-block: 32px 48px;
+    grid-template-areas: "eyebrow" "title" "portrait" "copy" "actions" "audience" "description";
+    padding-block: 26px 42px;
   }
   .hero .eyebrow {
     font-size: 0.64rem;
     letter-spacing: 0.13em;
   }
   .hero h1 {
-    margin: 16px 0 24px;
-    font-size: clamp(2.45rem, 10.4vw, 3.5rem);
-    line-height: 1.06;
+    margin: 14px 0 24px;
+    font-size: clamp(1.6rem, 8vw, 2.5rem);
+    line-height: 1.14;
     text-wrap: balance;
   }
+  .hero-title-line {
+    display: block;
+  }
+  .hero-title-middle {
+    color: var(--deep);
+    font-style: normal;
+  }
+  .hero h1 em {
+    padding-right: 0.08em;
+  }
   .hero-visual {
-    width: min(75%, 270px);
-    justify-self: center;
-    margin-bottom: 26px;
-    padding: 0 12px 12px 0;
+    width: 100%;
+    margin-bottom: 22px;
+    padding: 0;
   }
   .portrait-wrap {
-    aspect-ratio: 1.07;
-    box-shadow: 12px 12px 0 #dce5d7;
-    border-radius: 150px 150px 18px 18px;
+    aspect-ratio: 4 / 3;
+    border-radius: 18px;
   }
   .portrait-wrap img {
-    object-position: 54% 38%;
+    object-position: center;
   }
   .hero-copy {
     font-size: 0.96rem;
@@ -1004,9 +1023,20 @@ section {
   .hero .actions {
     margin-top: 6px;
   }
+  .hero .button {
+    width: 100%;
+    min-height: 52px;
+  }
   .hero-audience {
-    font-size: 0.77rem;
+    font-size: 0.82rem;
     margin-top: 14px;
+  }
+  .hero-description {
+    margin: 26px 0 0;
+    padding-top: 22px;
+    border-top: 1px solid var(--line);
+    font-size: 0.96rem;
+    line-height: 1.75;
   }
   .section-title {
     font-size: clamp(2.1rem, 8.5vw, 2.85rem);
@@ -1222,9 +1252,6 @@ section {
   }
   .brand {
     gap: 8px;
-  }
-  .hero h1 {
-    font-size: 2.35rem;
   }
   .contact-row {
     grid-template-columns: 1fr;
