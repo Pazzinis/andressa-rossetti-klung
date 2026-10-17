@@ -1,16 +1,18 @@
 :root {
-  --pine: #24483d;
-  --deep: #19372f;
-  --accent: #52785e;
-  --paper: #f7f6f0;
-  --white: #fffefa;
-  --sage: #e8eee4;
-  --sand: #eeebe2;
-  --ink: #293b32;
-  --muted: #59685e;
-  --line: #d3ddd0;
-  --serif: "DM Serif Display", Georgia, serif;
-  --sans: "DM Sans", Arial, sans-serif;
+  --pine: #1f3429;
+  --deep: #1f3429;
+  --accent: #526b56;
+  --paper: #f2eeeb;
+  --white: #fffdfa;
+  --sage: #e7e9e3;
+  --sand: #e9e0d8;
+  --ink: #29382f;
+  --muted: #4d5d51;
+  --line: #cdd2c8;
+  --brand-sage: #8c9784;
+  --brand-beige: #e1d4c7;
+  --serif: "Cinzel", Georgia, serif;
+  --sans: "Montserrat", Arial, sans-serif;
   --radius: 20px;
 }
 
@@ -163,22 +165,22 @@ section {
   flex-shrink: 0;
 }
 .brand-mark {
-  display: grid;
-  place-items: center;
-  width: 38px;
-  height: 38px;
-  border: 1px solid #78917b;
-  border-radius: 50%;
-  font: 400 1.3rem var(--serif);
+  display: block;
+  flex: 0 0 42px;
+  width: 42px;
+  height: 42px;
+  background: url("./assets/andressa-logo-normal.png") -90px -69px / 222px 222px no-repeat;
 }
 .brand-name {
-  font: 400 1.1rem/1.1 var(--serif);
+  font: 500 0.82rem/1.1 var(--serif);
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
 }
 .brand-name small {
   display: block;
-  margin-top: 6px;
-  font: 600 0.57rem/1.4 var(--sans);
-  letter-spacing: 0.16em;
+  margin-top: 4px;
+  font: 600 0.48rem/1.4 var(--sans);
+  letter-spacing: 0.09em;
   text-transform: uppercase;
 }
 .nav {
@@ -217,7 +219,7 @@ section {
 
 /* The DOM follows the same reading order as the mobile layout. */
 .hero {
-  background: linear-gradient(120deg, var(--paper) 58%, #e9eee6);
+  background: linear-gradient(120deg, var(--paper) 58%, #e8e9e2);
 }
 .hero-grid {
   display: grid;
@@ -328,7 +330,7 @@ section {
   margin: 0;
   padding-left: 26px;
   color: #354b3e;
-  font: 400 1.4rem/1.45 var(--serif);
+  font: 500 1.07rem/1.65 var(--sans);
 }
 .experience-grid blockquote::before {
   content: "";
@@ -338,7 +340,7 @@ section {
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: #769179;
+  background: var(--brand-sage);
 }
 .experiences .section-end {
   padding-top: 24px;
@@ -374,7 +376,7 @@ section {
 
 /* Five areas of care, balanced as three columns without an empty sixth card. */
 .help {
-  background: #eaf0e6;
+  background: var(--sage);
 }
 .help .section-title {
   max-width: 650px;
@@ -391,7 +393,7 @@ section {
   grid-column: span 2;
   padding: 30px;
   border-radius: var(--radius);
-  background: #f9fbf5;
+  background: var(--white);
 }
 .help-grid article:nth-child(n + 4) {
   grid-column: span 3;
@@ -400,7 +402,7 @@ section {
   display: inline-block;
   width: 30px;
   height: 3px;
-  background: #8da586;
+  background: var(--brand-sage);
   font-size: 0;
   vertical-align: middle;
 }
@@ -423,7 +425,7 @@ section {
 }
 .intercultural .reading-copy p:last-child {
   padding: 24px 28px;
-  background: #e9eee3;
+  background: #ebe4dd;
   border-radius: var(--radius);
 }
 
@@ -456,7 +458,7 @@ section {
 }
 .about-copy .about-belief {
   color: #f2f5e9;
-  font: 400 1.65rem/1.45 var(--serif);
+  font: 500 1.15rem/1.65 var(--sans);
 }
 .instagram-link {
   display: inline-flex;
@@ -503,8 +505,8 @@ section {
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  background: #e4ecdf;
-  color: #466b50;
+  background: var(--brand-beige);
+  color: var(--pine);
   font: 400 1.2rem var(--serif);
 }
 .step h3 {
@@ -589,7 +591,7 @@ section {
 
 /* Office photographs and gallery */
 .space {
-  background: #edf1e7;
+  background: var(--sage);
 }
 .space-head {
   display: grid;
@@ -860,6 +862,13 @@ section {
   background: var(--deep);
   color: #dce8d8;
 }
+.footer-brand {
+  display: block;
+  flex: 0 0 188px;
+  width: 188px;
+  height: 130px;
+  background: url("./assets/andressa-logo-branco.png") -111px -140px / 410px 410px no-repeat;
+}
 .footer-inner {
   display: flex;
   justify-content: space-between;
@@ -954,14 +963,17 @@ section {
     gap: 10px;
   }
   .brand-name {
-    font-size: 1rem;
+    font-size: 0.7rem;
   }
   .brand-mark {
     width: 34px;
     height: 34px;
+    flex-basis: 34px;
+    background-size: 180px 180px;
+    background-position: -73px -56px;
   }
   .brand-name small {
-    font-size: 0.51rem;
+    font-size: 0.44rem;
   }
   .nav,
   .js .nav {
@@ -991,8 +1003,8 @@ section {
   }
   .hero h1 {
     margin: 14px 0 24px;
-    font-size: clamp(1.6rem, 8vw, 2.5rem);
-    line-height: 1.14;
+    font-size: clamp(1.45rem, 7vw, 2.1rem);
+    line-height: 1.21;
     text-wrap: balance;
   }
   .hero-title-line {
@@ -1067,7 +1079,7 @@ section {
     margin: 28px 0;
   }
   .experience-grid blockquote {
-    font-size: 1.24rem;
+    font-size: 1.04rem;
     padding-left: 23px;
   }
   .section-end {
@@ -1109,8 +1121,8 @@ section {
     padding-block: 60px;
   }
   .about-copy .about-belief {
-    font-size: 1.45rem;
-    line-height: 1.5;
+    font-size: 1.12rem;
+    line-height: 1.68;
   }
   .instagram-link {
     font-size: 0.82rem;
@@ -1244,15 +1256,27 @@ section {
   .container {
     width: calc(100% - 32px);
   }
+  .hero-grid {
+    padding-top: 22px;
+  }
+  .hero h1 {
+    margin-bottom: 18px;
+  }
+  .hero-visual {
+    margin-bottom: 16px;
+  }
   .brand-name {
-    font-size: 0.91rem;
+    font-size: 0.63rem;
   }
   .brand-name small {
-    font-size: 0.46rem;
+    font-size: 0.4rem;
   }
   .brand-mark {
     width: 30px;
     height: 30px;
+    flex-basis: 30px;
+    background-size: 159px 159px;
+    background-position: -64px -49px;
   }
   .brand {
     gap: 8px;
