@@ -134,37 +134,70 @@ gallery.addEventListener("close", () => {
   galleryTrigger?.focus({ preventScroll: true });
 });
 
-// Progressive enhancement: content stays visible without JavaScript or motion.
+// Motion is optional; base HTML remains visible without JavaScript.
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 const runningAnimations = new Set();
-function animateEntrance(element, distance = 14, duration = 420) {
-  if (reducedMotion.matches || !element.animate) return;
+function animateEntrance(element, distance = 32, duration = 720, delay = 0, paused = false) {
+  if (reducedMotion.matches || !element.animate) return null;
   const animation = element.animate(
     [{ opacity: 0, transform: `translateY(${distance}px)` },
      { opacity: 1, transform: "translateY(0)" }],
-    { duration, easing: "cubic-bezier(.2,.7,.2,1)" },
+    { duration, delay, fill: "both", easing: "cubic-bezier(.16,1,.3,1)" },
   );
+  if (paused) animation.pause();
   runningAnimations.add(animation);
-  animation.finished.catch(() => {}).finally(() => runningAnimations.delete(animation));
+  animation.finished.catch(() => {}).finally(() => {
+    runningAnimations.delete(animation);
+    animation.cancel();
+  });
+  return animation;
 }
 reducedMotion.addEventListener("change", () => {
   if (reducedMotion.matches) runningAnimations.forEach(animation => animation.cancel());
 });
-if ("IntersectionObserver" in window) {
+if ("IntersectionObserver" in window && !reducedMotion.matches) {
+  const pendingReveals = new Map();
   const revealObserver = new IntersectionObserver(entries => {
+    let sequence = 0;
     entries.forEach(entry => {
       if (!entry.isIntersecting) return;
-      animateEntrance(entry.target);
+      const animation = pendingReveals.get(entry.target);
+      if (animation) {
+        animation.effect.updateTiming({ delay: Math.min(sequence++ * 100, 300) });
+        if (reducedMotion.matches) animation.cancel();
+        else animation.play();
+        pendingReveals.delete(entry.target);
+      }
       revealObserver.unobserve(entry.target);
     });
-  }, { threshold: 0.08 });
-  document.querySelectorAll("main > section:not(.hero) .section-title, .experience-grid blockquote, .help-grid article, .step, .space-grid figure, .about-grid, .contact-panel, .closing h2")
-    .forEach(element => revealObserver.observe(element));
+  }, { threshold: 0, rootMargin: "0px 0px -12% 0px" });
+  const targets = document.querySelectorAll(".hero-grid > *, main > section:not(.hero) .section-title, .experience-grid blockquote, .help-grid article, .step, .space-grid figure, .about-grid > *, .contact-panel, .closing h2");
+  targets.forEach(element => {
+    // Content above a restored scroll position must stay immediately available.
+    if (element.getBoundingClientRect().bottom < 0) return;
+    const animation = animateEntrance(element, 36, 850, 0, true);
+    if (animation) pendingReveals.set(element, animation);
+    revealObserver.observe(element);
+  });
+  document.addEventListener("focusin", event => {
+    pendingReveals.forEach((animation, element) => {
+      if (element.contains(event.target)) {
+        animation.cancel();
+        pendingReveals.delete(element);
+        revealObserver.unobserve(element);
+      }
+    });
+  });
 }
 menuToggle.addEventListener("click", () => {
-  if (menu.classList.contains("open")) animateEntrance(menu, -8, 180);
+  // Cancel an interrupted opening before starting another sequence.
+  menu.getAnimations({ subtree: true }).forEach(animation => animation.cancel());
+  if (!menu.classList.contains("open")) return;
+  animateEntrance(menu, -18, 350);
+  menu.querySelectorAll("a").forEach((link, index) => {
+    animateEntrance(link, 18, 480, 90 + index * 70);
+  });
 });
-
 // A quiet reading indicator and a keyboard-accessible shortcut on long pages.
 const readingProgress = document.createElement("div");
 readingProgress.className = "reading-progress";
