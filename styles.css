@@ -917,6 +917,10 @@ section {
   .js .nav.open {
     display: flex;
   }
+  .js .nav.closing {
+    display: flex;
+    pointer-events: none;
+  }
   .hero-grid {
     column-gap: 42px;
   }

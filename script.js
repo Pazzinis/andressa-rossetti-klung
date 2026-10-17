@@ -3,11 +3,41 @@ document.getElementById("year").textContent = new Date().getFullYear();
 
 const menuToggle = document.querySelector(".menu-toggle");
 const menu = document.getElementById("menu");
+let menuCloseAnimation = null;
 
-function closeMenu({ restoreFocus = false } = {}) {
+function closeMenu({ restoreFocus = false, immediate = false } = {}) {
+  if (!menu.classList.contains("open")) {
+    if (immediate && menu.classList.contains("closing")) {
+      menuCloseAnimation?.cancel();
+      menuCloseAnimation = null;
+      menu.classList.remove("closing");
+      menu.inert = false;
+    }
+    return;
+  }
+  const currentOpacity = getComputedStyle(menu).opacity;
+  menu.getAnimations({ subtree: true }).forEach((animation) => animation.cancel());
   menu.classList.remove("open");
   menuToggle.setAttribute("aria-expanded", "false");
   menuToggle.setAttribute("aria-label", "Abrir menu");
+  if (!immediate && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    menu.classList.add("closing");
+    menu.inert = true;
+    menuCloseAnimation = menu.animate(
+      [
+        { opacity: currentOpacity, transform: "translateY(0)" },
+        { opacity: 0, transform: "translateY(-14px)" },
+      ],
+      { duration: 250, easing: "cubic-bezier(.4,0,1,1)", fill: "forwards" },
+    );
+    menuCloseAnimation.finished.then(() => {
+      menu.classList.remove("closing");
+      menuCloseAnimation = null;
+    }).catch(() => {});
+  } else {
+    menu.classList.remove("closing");
+    menu.inert = false;
+  }
   if (restoreFocus) menuToggle.focus();
 }
 
@@ -16,6 +46,10 @@ menuToggle.addEventListener("click", () => {
     closeMenu();
     return;
   }
+  menuCloseAnimation?.cancel();
+  menuCloseAnimation = null;
+  menu.classList.remove("closing");
+  menu.inert = false;
   menu.classList.add("open");
   menuToggle.setAttribute("aria-expanded", "true");
   menuToggle.setAttribute("aria-label", "Fechar menu");
@@ -35,7 +69,7 @@ document.addEventListener("click", (event) => {
 });
 window
   .matchMedia("(min-width: 1101px)")
-  .addEventListener("change", () => closeMenu());
+  .addEventListener("change", () => closeMenu({ immediate: true }));
 
 const galleryButtons = [...document.querySelectorAll(".space-open")];
 const gallery = document.querySelector(".gallery-dialog");
@@ -173,6 +207,10 @@ if ("IntersectionObserver" in window && !reducedMotion.matches) {
   }, { threshold: 0, rootMargin: "0px 0px -12% 0px" });
   const targets = document.querySelectorAll(".hero-grid > *, main > section:not(.hero) .section-title, .experience-grid blockquote, .help-grid article, .step, .space-grid figure, .about-grid > *, .contact-panel, .closing h2");
   targets.forEach(element => {
+    if (element.matches(".hero .actions")) {
+      animateEntrance(element, 14, 500);
+      return;
+    }
     // Content above a restored scroll position must stay immediately available.
     if (element.getBoundingClientRect().bottom < 0) return;
     const animation = animateEntrance(element, 36, 850, 0, true);
@@ -191,8 +229,8 @@ if ("IntersectionObserver" in window && !reducedMotion.matches) {
 }
 menuToggle.addEventListener("click", () => {
   // Cancel an interrupted opening before starting another sequence.
-  menu.getAnimations({ subtree: true }).forEach(animation => animation.cancel());
   if (!menu.classList.contains("open")) return;
+  menu.getAnimations({ subtree: true }).forEach(animation => animation.cancel());
   animateEntrance(menu, -18, 350);
   menu.querySelectorAll("a").forEach((link, index) => {
     animateEntrance(link, 18, 480, 90 + index * 70);
