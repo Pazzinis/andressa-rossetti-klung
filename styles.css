@@ -1269,3 +1269,62 @@ section {
     transition: none !important;
   }
 }
+
+/* Small interaction cues share the site's calm visual rhythm. */
+.reading-progress {
+  position: fixed;
+  inset: 0 0 auto;
+  height: 3px;
+  background: var(--accent);
+  z-index: 100;
+  transform: scaleX(0);
+  transform-origin: left;
+  pointer-events: none;
+}
+.back-to-top {
+  position: fixed;
+  right: max(16px, env(safe-area-inset-right));
+  bottom: max(16px, env(safe-area-inset-bottom));
+  z-index: 20;
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: var(--paper);
+  color: var(--deep);
+  box-shadow: 0 4px 18px #19372f18;
+  font-size: 1.4rem;
+  text-decoration: none;
+}
+.back-to-top[hidden] { display: none; }
+.nav a[aria-current="location"] { text-decoration: underline; text-underline-offset: 6px; }
+.gallery-choices { display: flex; justify-content: center; gap: 10px; margin-top: 12px; }
+.gallery-choices button {
+  width: 44px;
+  height: 44px;
+  border: 1px solid #b8cbbd;
+  border-radius: 50%;
+  background: transparent;
+  color: #fffefa;
+  cursor: pointer;
+}
+.gallery-choices button[aria-pressed="true"] { background: #e8eee4; color: #19372f; }
+@media (prefers-reduced-motion: no-preference) {
+  .button, .back-to-top, .gallery-control, .gallery-choices button, .instagram-link {
+    transition: background-color 180ms ease, color 180ms ease, transform 180ms ease, box-shadow 180ms ease;
+  }
+  .button:active, .gallery-control:active, .gallery-choices button:active { transform: scale(.97); }
+  .gallery-dialog[open] { animation: dialog-enter 200ms ease-out; }
+  .gallery-dialog[open]::backdrop { animation: backdrop-enter 200ms ease-out; }
+  @keyframes dialog-enter { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes backdrop-enter { from { opacity: 0; } to { opacity: 1; } }
+}
+@media (hover: hover) {
+  .back-to-top:hover { background: var(--sage); }
+  .gallery-choices button:hover { background: #e8eee4; color: #19372f; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; }
+}
