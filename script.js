@@ -264,7 +264,8 @@ function updateScrollUI() {
   scrollFrame = null;
   const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
   readingProgress.style.transform = `scaleX(${maxScroll > 0 ? Math.min(1, Math.max(0, window.scrollY / maxScroll)) : 0})`;
-  backToTop.hidden = window.scrollY < window.innerHeight;
+  const footerVisible = document.querySelector(".footer").getBoundingClientRect().top < window.innerHeight;
+  backToTop.hidden = window.scrollY < window.innerHeight || footerVisible;
   let active = -1;
   linkedSections.forEach((section, index) => {
     if (section && section.getBoundingClientRect().top <= window.innerHeight * 0.35) active = index;

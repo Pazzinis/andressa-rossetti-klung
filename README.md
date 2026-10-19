@@ -18,6 +18,15 @@ Abra `http://localhost:4174/`. O conteúdo fica em `index.html`, o sistema visua
 `styles.css` e as interações do menu e da galeria em `script.js`. As fotos do
 consultório usam WebP na resolução original para reduzir o carregamento.
 
+O retrato principal usa versões WebP de 960 e 1448 px em `assets/`. A imagem
+horizontal `assets/andressa-compartilhar.jpg` aparece nas prévias de links.
+Ao trocar a foto ou a marca, atualize essa imagem, os metadados e os dados
+estruturados em `index.html`.
+
+O `sitemap.xml` lista a URL canônica. Atualize `lastmod` somente quando o
+conteúdo mudar de forma relevante e envie o sitemap pelo Google Search Console
+após verificar a propriedade do site.
+
 Ao atualizar CSS ou JavaScript, altere também o parâmetro `v` dos respectivos
 links no HTML para que navegadores recebam a nova versão.
 

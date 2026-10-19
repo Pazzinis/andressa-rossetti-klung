@@ -1245,9 +1245,17 @@ section {
     font-size: 0.96rem;
   }
   .footer-inner {
+    flex-direction: column;
+    align-items: center;
     gap: 14px;
+    text-align: center;
+  }
+  .footer-brand {
+    flex-basis: auto;
   }
   .footer-links {
+    width: 100%;
+    justify-content: center;
     gap: 22px;
   }
 }
